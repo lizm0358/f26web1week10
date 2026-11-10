@@ -59,7 +59,7 @@ MAIN STYLES
     /* always give your site a maximum width*/
     max-width: 900px;
     margin: 0 auto;
-    background-color: bisque;
+    background-color: rgb(212, 255, 0);
     }
 
 h1 {
@@ -68,7 +68,7 @@ h1 {
     which by default is set to 16px = 35.2px) */
     /* you can set padding and margin based on 
     an element's font size with an em...*/
-    padding: 0.5 em; /*0.5 x 35.2 =17.6 px */
+    padding: 0.5em; /*0.5 x 35.2 =17.6 px */
 
     /* an rem is relative to the root font size (either 
     the default of 16px, or whatever font size you set on 
@@ -81,7 +81,7 @@ h1 {
 
 h3 { 
     font-size: 1.6em;
-    padding: 0.5 em;
+    padding: 0.5em;
 }
 
 article div{
@@ -137,4 +137,73 @@ section:nth-of-type(4) article div{
 /* you can tell individual objects to take up more (or less) space than other objects...*/
 section:nth-of-type(4) article div:nth-of-type(2){ 
     flex-grow:2;
+}
+
+/**************************************************
+            FLEX EXAMPLE FOR NAV
+**************************************************/
+
+nav ul{
+    /*make the list items inside the ul sit next to each other*/
+    display:flex;
+
+
+    /*you can tell the objects to wrap to the next line (row or
+    column) if they no longer fit inside the flexbox */
+    flex-wrap:wrap;
+
+    /*justify-content:space-evenly;
+    ...this would be good if you wanted a text-based nav */
+}
+
+/*...we can also use flex to make the nav look more like buttons*/
+
+nav ul li {
+    flex-grow:1;
+    background-color: coral;
+
+    /*you can put a flexbox inside of a flexbox*/
+    display:flex;
+}
+
+nav ul li a{
+    flex-grow:1;
+    text-align: center;
+    padding: 1em;
+}
+
+nav ul li a:hover{
+    background-color:aqua;
+}
+
+
+/******************************************************
+                    MEDIA QUERIES
+******************************************************/
+/* at a minimum of 640px, and above, apply these styles */
+@media screen and (min-width:640px){
+    /*Apply flexer to the div with the class flexer, which 
+    contains the main and the aside, so the main and aside will 
+    sit next to each other */
+    .flexer{
+        display:flex;
+        gap:1em;
+    }
+/*using flex-grow, weight the main and aside */
+    main{
+        flex-grow:4;
+
+        /* make the content in the main distributed vertically 
+        to take up as much space as the sidebar */
+        display:flex;
+        flex-direction:column;
+        justify-content:space-between;
+
+        /* default order is 1, so by setting this to 2, we move 
+        it after the aside*/
+        order:2;
+    }
+    aside{
+    flex-grow:1;
+    }
 }
