@@ -51,3 +51,90 @@ table {
     border-collapse: collapse;
     border-spacing: 0;
 }
+/******************************
+MAIN STYLES
+******************************/
+
+.container {
+    /* always give your site a maximum width*/
+    max-width: 900px;
+    margin: 0 auto;
+    background-color: bisque;
+    }
+
+h1 {
+    font-size: 2.2em;
+    /* an em is always relative to the current font size, 
+    which by default is set to 16px = 35.2px) */
+    /* you can set padding and margin based on 
+    an element's font size with an em...*/
+    padding: 0.5 em; /*0.5 x 35.2 =17.6 px */
+
+    /* an rem is relative to the root font size (either 
+    the default of 16px, or whatever font size you set on 
+    the html tag */
+
+    margin-bottom: 1rem; /* 1rem x 16px = 16px*/
+
+
+}
+
+h3 { 
+    font-size: 1.6em;
+    padding: 0.5 em;
+}
+
+article div{
+    font-size: 36px;
+    padding: 10px;
+    border: 2px solid darkolivegreen;
+    background-color: seagreen;
+}
+
+section:nth-of-type(1) article{
+    /* nth-child grabs an element based on its position in its 
+    parent regardless of what type of elements are there 
+    nth of type will only select the element at that position if 
+    it matches the element type*/
+    display:flex;
+}
+
+section:nth-of-type(2) article{
+    display:flex;
+    /* the direction of the flex is relative to the language the
+    site is written in */
+    flex-direction:row-reverse;
+/*flex direction can also be column, if you want things stacked vertically*/
+
+}
+
+section:nth-of-type(3) article{
+    display:flex;
+
+    /*there are multiple ways to space the elements in your flexbox 
+    (or to justify the content
+        -flex-start, flex-end, and center which move the content around
+        -space-between spreads the elements out with an equal amount of 
+        space between them
+        - space around spreads the elementsout with an equal amount of 
+        space on either side of each element
+        -space-evenly equally distributes the elements within the available space*/
+        justify-content: space-between;
+}
+
+section:nth-of-type(4) article{
+    display:flex;
+    /*you can also add a little bit of space between the objects with gap*/
+    gap: 4px;
+}
+
+/* you can tell each object inside the flex to grow to take up the
+available space*/
+section:nth-of-type(4) article div{
+    flex-grow:1;
+}
+
+/* you can tell individual objects to take up more (or less) space than other objects...*/
+section:nth-of-type(4) article div:nth-of-type(2){ 
+    flex-grow:2;
+}
